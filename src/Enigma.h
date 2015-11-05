@@ -1,6 +1,7 @@
 #ifndef ENIGMA_HEADER
 #define ENIGMA_HEADER
 
+//This model ignores the ring positions as we assume the inner rotors do not step
 struct s_enigma {
 	const unsigned char** rotors;
 	const unsigned char * reflector;
@@ -25,7 +26,7 @@ void invert_rotor(const unsigned char rotor[26], unsigned char rev_rotor[26]);
 int rotor_permutations(int perm[6][3]);
 
 
-//Rotor definitions
+//Rotor definitions, defined in enima_helper.c
 extern const unsigned char RotorI[26];
 extern const unsigned char RotorII[26];
 extern const unsigned char RotorIII[26];
