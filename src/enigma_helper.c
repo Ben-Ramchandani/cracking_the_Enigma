@@ -9,6 +9,26 @@ const unsigned char RotorIII[] = {1, 3, 5, 7, 9, 11, 2, 15, 17, 19, 23, 21, 25, 
 const unsigned char ReflectorB[] = {24, 17, 20, 7, 16, 18, 11, 3, 15, 23, 13, 6, 14, 10, 12, 8, 4, 1, 5, 25, 2, 22, 21, 9, 0, 19}; //'YRUHQSLDPXNGOKMIEBFZCWVJAT'
 
 
+//Boring helper functions
+void zero_char_array(char* arr, int length)
+{
+    int i;
+
+    for(i = 0; i < length; i++)
+        arr[i] = 0;
+
+    return;
+}
+
+void zero_int_array(int* arr, int length) {
+    int i;
+
+    for(i = 0; i < length; i++)
+        arr[i] = 0;
+
+    return;
+}
+
 
 void printCharArray(const unsigned char * arr, int length) {
         int i;
@@ -16,6 +36,8 @@ void printCharArray(const unsigned char * arr, int length) {
                 printf("%c, ", arr[i]+65);
         printf("\n");
 }
+
+//Slightly (but only slightly) less boring helper functions
 
 //Changes the second array to be the mirror image of the first.
 void invert_rotor(const unsigned char rotor[26], unsigned char rev_rotor[26])
@@ -29,7 +51,7 @@ void invert_rotor(const unsigned char rotor[26], unsigned char rev_rotor[26])
     return;
 }
 
-
+//This is really overkill for 3 rotors, but never mind
 int rotor_permutations(int perm[6][3])
 {
     int i;

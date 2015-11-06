@@ -5,7 +5,9 @@
 #include "Enigma.h"
 
 
-
+//This is a much simpler proposition than in plug_break.c, we don't have a plugboard at all.
+//It's what plug_break is based on, and I've just kept it in case anyone is interested.
+//Is not mentioned in the Makefile.
 bool crack_commercial(const unsigned char * rotors[6], const unsigned char reflector[26], const unsigned char plain_text[13], const unsigned char cipher_text[13], unsigned char answer[3])
 {
     unsigned char n;

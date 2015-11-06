@@ -13,8 +13,11 @@ $(EXE): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(EXE)
 
 $(OBJDIR)/%.o: %.c $(DEP)
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+run: all
+	./$(EXE)
 
 clean:
 	-rm -f $(OBJDIR)/*.o $(EXE)

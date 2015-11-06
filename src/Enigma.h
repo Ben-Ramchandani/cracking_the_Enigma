@@ -13,12 +13,16 @@ struct s_enigma {
 //From Enigma.c
 unsigned char encipher(const unsigned char * rotors[6], const unsigned char *reflector, unsigned char fast,unsigned char mid, unsigned char slow, unsigned char n);
 
-unsigned char rotor_encipher(unsigned char n, unsigned char position, const unsigned char *encode_array);//n is a number between 0 and 25, representing a number between A and Z.
+unsigned char rotor_encipher(unsigned char n, unsigned char position, const unsigned char *encode_array);//n is a number between 0 and 25, representing a character between A and Z.
 
 void encipher_multiple(const unsigned char* input, int inputLen, unsigned char* result, struct s_enigma enig);
 
 
 //From enigma_helper.c
+void zero_char_array(char *arr, int length);
+
+void zero_int_array(int* arr, int length);
+
 void printCharArray(const unsigned char * arr, int length);
 
 void invert_rotor(const unsigned char rotor[26], unsigned char rev_rotor[26]);

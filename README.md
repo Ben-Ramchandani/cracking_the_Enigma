@@ -17,4 +17,19 @@ The Bombe
 ---------
 
 The Bombe was an electro-mechanical device used by the allies to break the Enigma cipher. The basic idea behind it is to start with some cipher-text and a 'crib' (guessed message) and test every combination of rotor positions to see if could plausibly have produced this output.
-This program acts in a similar manner to the Bombe in its atempt to find possible rotor positions.
+This program acts in a similar manner to the Bombe in its attempt to find possible rotor positions.
+
+
+The code
+--------
+
+The interesting(ish) part is is in `src/plug\_break.c`, it contains the code that actually loops through the possibilities, as well as the main function.
+`src/crack\_commercial.c` contains code to find the rotor positions for a machine without a plugboard (a Commercial Enigma) and is left, but not used.
+
+
+Installation and use
+--------------------
+
+Navigate to the `/src` folder and `make`.
+Can then be run as `./enigma`.
+The text, rotors and position used can be adjusted in `plug_break.c`.
