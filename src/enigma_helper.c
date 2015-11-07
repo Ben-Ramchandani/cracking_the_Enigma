@@ -29,6 +29,22 @@ void zero_int_array(int* arr, int length) {
     return;
 }
 
+//This program uses arrays of unsigned chars 0<=c<26, so convert.
+void string_to_enigma_input(char *str, unsigned char *text) {
+        int i;
+        for(i=0; str[i] != '\0'; i++) {
+                if(str[i] < 'A' || str[i] > 'Z') {
+                        fprintf(stderr, "Warn: string_to_enigma_input: Input string contains invalid characters - replaced with 'X'.");
+                        text[i] = 'A' - 'X'; // Replace bad characters with X
+                } else {
+                        text[i] = str[i] - 'A';
+                }
+        }
+        if(i != 13)//Length taken by cracker
+                fprintf(stderr, "Warn: string_to_enigma_input: Input string was not of length 13.");
+        return;
+}
+
 
 void printCharArray(const unsigned char * arr, int length) {
         int i;

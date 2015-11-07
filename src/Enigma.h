@@ -1,6 +1,8 @@
 #ifndef ENIGMA_HEADER
 #define ENIGMA_HEADER
 
+#define TEXT_LEN 13
+
 //This model ignores the ring positions as we assume the inner rotors do not step
 struct s_enigma {
 	const unsigned char** rotors;
@@ -23,6 +25,8 @@ void zero_char_array(char *arr, int length);
 
 void zero_int_array(int* arr, int length);
 
+void string_to_enigma_input(char *str, unsigned char *text);
+
 void printCharArray(const unsigned char * arr, int length);
 
 void invert_rotor(const unsigned char rotor[26], unsigned char rev_rotor[26]);
@@ -35,5 +39,13 @@ extern const unsigned char RotorI[26];
 extern const unsigned char RotorII[26];
 extern const unsigned char RotorIII[26];
 extern const unsigned char ReflectorB[26];
+
+//From plug_break.c
+
+void break_enigma(      unsigned char initial[2],
+                        const unsigned char * rotors[6],
+                        const unsigned char reflector[26],
+                        unsigned char plain_text[TEXT_LEN],
+                        unsigned char cipher_text[TEXT_LEN]);
 
 #endif

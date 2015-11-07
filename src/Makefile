@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS= -std=c99 -Wall -pedantic -O3
-SOURCES=Enigma.c enigma_helper.c plug_break.c
+SOURCES=main.c Enigma.c enigma_helper.c plug_break.c
 DEP=Enigma.h
 OBJDIR=obj
 EXEDIR=../bin
