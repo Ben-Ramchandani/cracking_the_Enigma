@@ -1,3 +1,6 @@
+// Functions to mimic a 3 rotor Enigma with no plugboard.
+// Assumes only the outer (fast) rotor moves.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Enigma.h"

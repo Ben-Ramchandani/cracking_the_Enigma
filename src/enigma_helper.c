@@ -1,3 +1,6 @@
+// Helper functions and rotor definitions.
+
+
 #include "Enigma.h"
 #include <stdio.h>
 

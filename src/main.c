@@ -6,7 +6,6 @@
 //#define ACCEPT_ARGS
 
 
-
 int main(int argc, char** argv) {
 	unsigned char RevRotorI[26];
 	unsigned char RevRotorII[26];
@@ -26,7 +25,7 @@ int main(int argc, char** argv) {
 	unsigned char cipher_text[13];
 
 	#if defined(ACCEPT_ARGS)
-	if(argc >= 2)
+	if(argc >= 1)
 		string_to_enigma_input(argv[1], plain_text);
 	#endif	
 
@@ -41,11 +40,18 @@ int main(int argc, char** argv) {
 	enig.mid_pos =  1;
 	enig.slow_pos = 1;
 	
-	//And encrypt our example text
+	//Encrypt our example text.
 	//Note when we encrypt we assume only the fast rotor moves, as we do during decryption
 	//to counter this a guessed message is split up into two adjacent parts of length <=13,
 	//such that the middle rotor would turn in at most one of them (barring double step, which was rare).
 	encipher_multiple(plain_text, 13, cipher_text, enig);
+
+
+	//Set up for decryption
+	int perms[6][3];
+	rotor_permutations(perms);
+	unsigned char initial[2] = {0, 0};
+
 
 	#ifdef ENIGMA_TIME_RUN
 	clock_t begin, end;
@@ -53,10 +59,6 @@ int main(int argc, char** argv) {
 	begin = clock();
 	#endif
 	
-	//Set up for decryption
-	int perms[6][3];
-	rotor_permutations(perms);
-	unsigned char initial[2] = {0, 0};
 	
 	//Try each possible rotor order
 	for(i = 0; i < 6; i++)
@@ -71,6 +73,8 @@ int main(int argc, char** argv) {
 		printf("\nTrying rotor combination %d, %d, %d.\n", perms[i][0], perms[i][1], perms[i][2]);
 		break_enigma(initial, Rotors, ReflectorB, plain_text, cipher_text);
 	}
+
+
 	#ifdef ENIGMA_TIME_RUN
 	end = clock();
 	time_spent = ((double) (end-begin)) / CLOCKS_PER_SEC;

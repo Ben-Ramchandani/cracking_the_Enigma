@@ -1,3 +1,6 @@
+// Code and main() function for breaking the Commercial (plugboardless) Enigma.
+// Not used by Makefile.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

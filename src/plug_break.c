@@ -1,12 +1,11 @@
+//The main block of code that runs through the rotor positions and finds possible positions.
+
 #include <stdio.h>
 #include "Enigma.h"
 #include <unistd.h> //For sleep()
 
-
 //#define DEBUG
 //#define VERBOSE
-
-
 
 //This is just so I don't have to pass the rotors and reflector around the whole time - the positions aren't used.
 static struct s_enigma enigma_s;
