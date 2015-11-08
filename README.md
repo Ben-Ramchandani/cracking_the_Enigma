@@ -23,8 +23,8 @@ This program acts in a similar manner to the Bombe in its attempt to find possib
 The code
 --------
 
-The interesting part is is in `src/plug\_break.c` - it contains the code that actually loops through the possibilities, it's called from `main.c`.  
-`src/crack\_commercial.c` contains code to find the rotor positions for a machine without a plugboard (a Commercial Enigma) and is left here, but not used.
+The interesting part is is in `src/plug_break.c` - it contains the code that actually loops through the possibilities, it's called from `main.c`.  
+`src/crack_commercial.c` contains code to find the rotor positions for a machine without a plugboard (a Commercial Enigma) and is left here, but not used.
 
 
 Installation and use
