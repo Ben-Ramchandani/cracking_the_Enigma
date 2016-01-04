@@ -84,7 +84,10 @@ void break_enigma(	unsigned char initial[2],
 		full_contradiction = 0;
 		set_tri_matrix(matrix, initial[0], initial[1]);
 		count[initial[0]] = 1;
+		
+		//TODO: Is this necessary?
 		if(initial[0] == initial[1]) {count[initial[1]] = 1;}
+		
 		while(progress && !full_contradiction) {
 			progress--;
 			for(i=0; i<TEXT_LEN; i++) {
